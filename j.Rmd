@@ -1,0 +1,47 @@
+---
+title: "Rmarkdown Test"
+author: So-young Noh
+date: "Mar 9, 2021"
+output: html_document
+---
+ 
+## R Markdown Test
+
+This is a test script for rmarkdown.
+
+```{r global_option, include=FALSE}
+knitr::opts_chunk$set(fig.width=8, fig.height=8, fig.path="Figs/", 
+                      fig.keep="high", warning=FALSE, message=FALSE)
+set.seed(123123)
+```
+
+```{r}
+data(iris)
+library(knitr)
+kable(iris[1:10,])
+```
+
+iris data have `r nrow(iris)` observation with `r ncol(iris)` columns.
+
+opition include=FALSE will not show results.
+
+```{r include=FALSE}
+1+1
+```
+
+option echo=FASLE will not show codes.
+```{r, echo=FALSE}
+1+1
+```
+
+To include a figure with specific size:
+```{r course2, out.width="350px", fig.align="center", echo=FALSE}
+plot(iris[,1], iris[,2], col=iris[,5])
+```
+
+## Latex math equations
+
+Here is a math equation
+$$ \sum_{i=1}^n X_i $$
+
+
